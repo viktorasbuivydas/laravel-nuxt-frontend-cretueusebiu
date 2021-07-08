@@ -12,7 +12,7 @@
 <img src="https://i.imgur.com/NHFTsGt.png">
 </p>
 
-## Laravel client for Nuxt spa
+## Client for Nuxt spa
 
 ## Features
 
@@ -25,10 +25,6 @@
 
 ## Installation
 
-- `composer create-project --prefer-dist cretueusebiu/laravel-nuxt`
-- Edit `.env` and set your database connection details
-- (When installed via git clone or download, run `php artisan key:generate` and `php artisan jwt:secret`)
-- `php artisan migrate`
 - `npm install`
 
 ## Usage
@@ -61,19 +57,6 @@ npm run build
 
 For Nginx you can add a proxy using the follwing location block:
 
-```
-server {
-    location / {
-        proxy_pass http://http://127.0.0.1:3000;
-        proxy_http_version 1.1;
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection 'upgrade';
-        proxy_set_header Host $host;
-        proxy_cache_bypass $http_upgrade;
-    }
-}
-```
-
 #### Process Manager
 
 In production you need a process manager to keep the Node server alive forever:
@@ -102,20 +85,6 @@ pm2 restart laravel-nuxt
 ```
 
 Make sure to read the [Nuxt docs](https://nuxtjs.org/).
-
-## Socialite
-
-This project comes with GitHub as an example for [Laravel Socialite](https://laravel.com/docs/5.8/socialite).
-
-To enable the provider create a new GitHub application and use `https://example.com/api/oauth/github/callback` as the Authorization callback URL.
-
-Edit `.env` and set `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` with the keys form your GitHub application.
-
-For other providers you may need to set the appropriate keys in `config/services.php` and redirect url in `OAuthController.php`.
-
-## Email Verification
-
-To enable email verification make sure that your `App\User` model implements the `Illuminate\Contracts\Auth\MustVerifyEmail` contract.
 
 ## Notes
 
